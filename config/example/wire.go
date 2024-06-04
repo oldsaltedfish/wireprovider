@@ -2,7 +2,7 @@
 //go:build wireinject
 // +build wireinject
 
-package config
+package example
 
 import (
 	"github.com/google/wire"

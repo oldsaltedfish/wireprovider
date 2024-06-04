@@ -1,12 +1,10 @@
-package config
+package example
 
 import (
 	"flag"
 	"reflect"
 	"testing"
 )
-
-var configPath string
 
 func Test_wireContainer(t *testing.T) {
 
@@ -20,8 +18,8 @@ func Test_wireContainer(t *testing.T) {
 			want: "default",
 		},
 		{
-			name: "demo",
-			want: "demo",
+			name: "custom",
+			want: "custom",
 			f: func() {
 				flag.Set("conf", "config-custom.yml")
 			},
