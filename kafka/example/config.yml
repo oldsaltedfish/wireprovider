@@ -1,0 +1,15 @@
+kafka:
+  brokers:
+    - "192.168.0.46:9092"
+  properties:
+    Admin:
+      Timeout: 5
+    Producer:
+      Return:
+        Successes: true
+      Idempotent: true
+      RequiredAcks: -1
+    Net:
+      MaxOpenRequests: 1
+logger:
+  Type: zap
