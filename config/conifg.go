@@ -1,4 +1,4 @@
-package wireconfig
+package config
 
 import (
 	"flag"

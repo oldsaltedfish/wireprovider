@@ -13,7 +13,7 @@ import (
 // Injectors from wire.go:
 
 // wireApp init kratos application.
-func wireConfig() *wireconfig.Config {
-	config := wireconfig.NewConfig()
+func wireConfig() *config.Config {
+	config := config.NewConfig()
 	return config
 }
