@@ -1,0 +1,5 @@
+redis:
+  type: single # single/cluster default single
+  addr: 0.0.0.0:6379
+  db: 1
+  maxRedirects: 3
