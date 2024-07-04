@@ -1,0 +1,7 @@
+database:
+#  driverName: mysql
+#  dataSourceName: root:root@tcp(127.0.0.0:3306)/mysql?charset=utf8mb4&parseTime=True&loc=Local
+  driverName: postgres
+  dataSourceName: postgres://postgres:postgres@127.0.0.0:5432/test?sslmode=disable&timezone=Asia/Shanghai
+  maxIdleConns: 10
+  maxOpenConns: 100
