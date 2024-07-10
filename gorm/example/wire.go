@@ -5,13 +5,14 @@
 package example
 
 import (
-	"database/sql"
 	"github.com/google/wire"
 	"github.com/oldsaltedfish/wireprovider/config"
 	"github.com/oldsaltedfish/wireprovider/database"
+	gormProvider "github.com/oldsaltedfish/wireprovider/gorm"
 	"github.com/oldsaltedfish/wireprovider/logger"
+	"gorm.io/gorm"
 )
 
-func wireDB() (*sql.DB, error) {
-	panic(wire.Build(config.ProviderSet, database.ProviderSet, logger.ProviderSet))
+func wireDB() (*gorm.DB, error) {
+	panic(wire.Build(config.ProviderSet, database.ProviderSet, logger.ProviderSet, gormProvider.ProviderSet))
 }

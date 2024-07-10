@@ -22,7 +22,7 @@ func Test_wireDB(t *testing.T) {
 				return
 			}
 			a := ""
-			err = db.QueryRow("select 1").Scan(&a)
+			err = db.Raw("select 1").Scan(&a).Error
 			if err != nil {
 				t.Errorf("wireDB() error = %v", err)
 				return

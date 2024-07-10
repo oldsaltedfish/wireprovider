@@ -1,5 +1,6 @@
 redis:
-  type: single # single/cluster default single
+  type: standalone # single/cluster default single
   addr: 0.0.0.0:6379
+  password: ""
   db: 1
   maxRedirects: 3

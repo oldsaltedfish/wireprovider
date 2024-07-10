@@ -12,16 +12,16 @@ var ProviderSet = wire.NewSet(NewClient)
 func NewClient(config *config.Config, log logf.Logger) (redis.Cmdable, error) {
 	redisType := config.GetString("redis.type")
 	switch redisType {
-	case "single":
-		return NewSingleClient(config, log)
+	case "standalone":
+		return NewStandaloneClient(config, log)
 	case "cluster":
 		return NewClusterClient(config, log)
 	default:
-		return NewSingleClient(config, log)
+		return NewStandaloneClient(config, log)
 	}
 }
 
-func NewSingleClient(config *config.Config, log logf.Logger) (*redis.Client, error) {
+func NewStandaloneClient(config *config.Config, log logf.Logger) (*redis.Client, error) {
 	opt := new(redis.Options)
 	err := config.UnmarshalKey("redis", opt)
 	if err != nil {

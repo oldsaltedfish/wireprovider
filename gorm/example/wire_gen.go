@@ -7,20 +7,25 @@
 package example
 
 import (
-	"database/sql"
 	"github.com/oldsaltedfish/wireprovider/config"
 	"github.com/oldsaltedfish/wireprovider/database"
+	gorm2 "github.com/oldsaltedfish/wireprovider/gorm"
 	"github.com/oldsaltedfish/wireprovider/logger"
+	"gorm.io/gorm"
 )
 
 // Injectors from wire.go:
 
-func wireDB() (*sql.DB, error) {
+func wireDB() (*gorm.DB, error) {
 	configConfig := config.NewConfig()
 	logfLogger := logger.NewLogger(configConfig)
 	db, err := database.New(configConfig, logfLogger)
 	if err != nil {
 		return nil, err
 	}
-	return db, nil
+	gormDB, err := gorm2.New(db, configConfig, logfLogger)
+	if err != nil {
+		return nil, err
+	}
+	return gormDB, nil
 }
